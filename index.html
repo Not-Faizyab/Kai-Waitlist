@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore-compat.js"></script>
+
+    <title>Kairo - Own Your Time. Master the Moment.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyBX5Tq8Sz3J6A0Or6epm0Y-OGehwdg6dNA",
+        authDomain: "kairo-84926.firebaseapp.com",
+        projectId: "kairo-84926",
+        storageBucket: "kairo-84926.firebasestorage.app",
+        messagingSenderId: "169054130523",
+        appId: "1:169054130523:web:1ce73cf5e928a864854a7e",
+        measurementId: "G-LE9GSPY393"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+</script>
+
+
+<body>
+    <div id="customErrorPopup" class="custom-error-popup">
+        <div class="error-popup-content">
+            <span class="error-popup-icon">⚠</span>
+            <span id="errorPopupMsg">Error message here!</span>
+            <button class="error-popup-close" onclick="hideErrorPopup()">✖</button>
+        </div>
+    </div>
+
+    <div class="bg-canvas"></div>
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">Kairo</div>
+            <div class="nav-status">
+                <div class="status-dot"></div>
+                <span>Private Beta</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>✨ Early Access Program</span>
+            </div>
+
+            <h1 class="hero-title">Own Your Time.<br>Master the Moment.</h1>
+
+            <p class="hero-subtitle">
+                The intelligence-driven study platform that transforms how ambitious students track progress, build
+                unbreakable focus, and achieve academic excellence through advanced analytics.
+            </p>
+
+            <div class="waitlist-section">
+                <div class="form-wrapper">
+                    <div class="form-container">
+                        <input type="email" class="email-input" placeholder="Enter your email to join the waitlist"
+                            id="emailInput" required />
+                        <button class="submit-button" id="submitButton">Join Waitlist</button>
+                    </div>
+                    <p class="form-note">Limited spots available. Priority access for early adopters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-header">
+            <h2 class="features-title">Engineered for Excellence</h2>
+            <p class="features-subtitle">
+                Advanced study intelligence meets elegant design. Built for students who refuse to settle for average.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 17v2M4 13v1m4 5v-4m4 4V5m4 14v-7m4 7V9"/></svg></div>
+                <h3 class="feature-title">Neural Study Analytics</h3>
+                <p class="feature-description">
+                    AI-powered learning pattern recognition that adapts to your cognitive rhythms and optimizes study
+                    sessions for maximum retention and efficiency.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2" opacity=".6"/><circle cx="12" cy="12" r="20" stroke="#ffffff" stroke-width="2" opacity=".6"/></svg></div>
+                <h3 class="feature-title">Quantum Focus Engine</h3>
+                <p class="feature-description">
+                    Revolutionary attention tracking system with real-time distraction detection, flow state monitoring,
+                    and personalized focus enhancement protocols.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path stroke="#66b5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                <h3 class="feature-title">Dynamic Achievement System</h3>
+                <p class="feature-description">
+                    Adaptive milestone progression with intelligent streak recovery, achievement unlocks, and
+                    competitive elements designed to sustain long-term motivation.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path stroke="#53a3ff" stroke-width="2" d="M3 17l6-6 4 4 8-8"/></svg></div>
+                <h3 class="feature-title">Predictive Performance</h3>
+                <p class="feature-description">
+                    Machine learning algorithms predict optimal study schedules, identify knowledge gaps, and recommend
+                    personalized improvement strategies.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="7" rx="1" stroke="#3593ff" stroke-width="2"/><rect x="9" y="7" width="4" height="10" rx="1" stroke="#53a3ff" stroke-width="2"/><rect x="15" y="4" width="4" height="13" rx="1" stroke="#66b5ff" stroke-width="2"/></svg></div>
+                <h3 class="feature-title">Advanced Analytics Suite</h3>
+                <p class="feature-description">
+                    Dive deep! Unlock granular stats, trends, and actionable insights to laser-focus your grind—see
+                    exactly where you excel and where to double-down. Get smarter, not just busy.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="7" cy="7" r="3" stroke="#53a3ff" stroke-width="2"/><circle cx="17" cy="17" r="3" stroke="#3593ff" stroke-width="2"/><path stroke="#66b5ff" stroke-width="2" d="M7 10v4M17 14v-4"/></svg>
+                </div></div>
+                <h3 class="feature-title">Personalized Streak Coaching</h3>
+                <p class="feature-description">Advanced streak tracking and recovery advice, totally personalized to
+                    your routine so you never lose momentum. </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-number" id="waitlistNumber">0</div>
+            <div class="stats-label">Elite Students Waitlisted</div>
+            <div class="stats-sublabel">From 47 countries and counting</div>
+        </div>
+    </section>
+
+    <script>
+        // Enhanced form handling with Firebase + live counter
+        class KairoWaitlist {
+            constructor() {
+                this.emailInput = document.getElementById('emailInput');
+                this.submitButton = document.getElementById('submitButton');
+                this.successToast = document.getElementById('successToast');
+                this.waitlistNumber = document.getElementById('waitlistNumber');
+                this.currentCount = 0;
+                this._unsubscribe = null;
+
+                this.init();
+            }
+
+            init() {
+                this.submitButton.addEventListener('click', () => this.handleSubmit());
+                this.emailInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleSubmit();
+                });
+                // Animate counter & subscribe to Firestore for real-time updates
+                this._unsubscribe = db.collection("waitlist").onSnapshot(snapshot => {
+                    const count = snapshot.size;
+                    this.animateCounter(this.currentCount, count, 1000);
+                    this.currentCount = count;
+                });
+            }
+
+            isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            animateCounter(start, end, duration) {
+                const startTime = performance.now();
+                const animate = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const current = Math.floor(start + (end - start) * easeOutQuart);
+                    this.waitlistNumber.textContent = (current + 734).toLocaleString();
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                };
+                requestAnimationFrame(animate);
+            }
+
+            showSuccess() {
+                if (this.successToast) {
+                    this.successToast.classList.add('show');
+                    setTimeout(() => {
+                        this.successToast.classList.remove('show');
+                    }, 4300);
+                }
+            }
+
+
+
+            async handleSubmit() {
+                const email = this.emailInput.value.trim();
+                // Check empty
+                if (!email) {
+                    this.showUIError("Please enter an email!");
+                    return;
+                }
+                // Check format
+                if (!this.isValidEmail(email)) {
+                    this.showUIError("Enter a valid email address!");
+                    return;
+                }
+                this.submitButton.innerHTML = 'SECURING SPOT...';
+                this.submitButton.disabled = true;
+
+                try {
+                    // Check for duplicates
+                    const querySnapshot = await db.collection('waitlist').where('email', '==', email).get();
+                    if (!querySnapshot.empty) {
+                        this.showUIError("Email is already registered!");
+                        this.submitButton.innerHTML = "JOIN ELITE BETA";
+                        this.submitButton.disabled = false;
+                        return;
+                    }
+                    // Register email
+                    await db.collection('waitlist').add({ email, createdAt: new Date() });
+                    this.showSuccess();
+                } catch (error) {
+                    console.error("Error:", error);
+                    this.showUIError("Something went wrong. Try again!");
+                }
+                this.submitButton.innerHTML = "JOIN ELITE BETA";
+                this.submitButton.disabled = false;
+            }
+            showUIError(msg) {
+                // Implement this to display error, e.g. set textContent of an error <div>
+                showErrorPopup(msg); // Or your custom styled popup
+            }
+
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new KairoWaitlist();
+        });
+
+        // --- EXTRAS: Enhanced scroll effects for navigation ---
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > 100) {
+                nav.style.background = 'rgba(10, 11, 14, 0.95)';
+                nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.12)';
+            } else {
+                nav.style.background = 'rgba(10, 11, 14, 0.8)';
+                nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.08)';
+            }
+            lastScrollY = currentScrollY;
+        });
+
+
+
+        function showErrorPopup(message) {
+            document.getElementById('errorPopupMsg').textContent = message;
+            const popup = document.getElementById('customErrorPopup');
+            popup.classList.add('show');
+            popup.style.display = 'flex';
+            setTimeout(hideErrorPopup, 3700); // Auto-hide after 3.7s
+        }
+        function hideErrorPopup() {
+            const popup = document.getElementById('customErrorPopup');
+            popup.classList.remove('show');
+            setTimeout(() => popup.style.display = 'none', 350); // Wait for animation
+        }
+
+    </script>
+    <div id="successToast" class="custom-success-toast">
+        <div class="toast-icon">✅</div>
+        <div class="toast-message">
+            Registered! You’re officially a Kairo Elite.<br>
+            <span class="toast-sub">Welcome to the squad.</span>
+        </div>
+        <button class="toast-close"
+            onclick="document.getElementById('successToast').classList.remove('show');">✖</button>
+    </div>
+</body>
+
+</html>

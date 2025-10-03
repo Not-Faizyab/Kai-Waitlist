@@ -7,6 +7,7 @@
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics-compat.js"></script>
     <script src="firebase-config.js"></script>
 
     <title>Kairo - Own Your Time. Master the Moment.</title>
@@ -16,6 +17,8 @@
 <script>
     firebase.initializeApp(window.firebaseConfig);
     window.db = firebase.firestore();
+    const analytics = firebase.analytics();
+    window.analytics = firebase.analytics();
 </script>
 
 

@@ -7,25 +7,15 @@
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
 
     <title>Kairo - Own Your Time. Master the Moment.</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <script>
-    const firebaseConfig = {
-        apiKey: "AIzaSyBX5Tq8Sz3J6A0Or6epm0Y-OGehwdg6dNA",
-        authDomain: "kairo-84926.firebaseapp.com",
-        projectId: "kairo-84926",
-        storageBucket: "kairo-84926.firebasestorage.app",
-        messagingSenderId: "169054130523",
-        appId: "1:169054130523:web:1ce73cf5e928a864854a7e",
-        measurementId: "G-LE9GSPY393"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+    firebase.initializeApp(window.firebaseConfig);
+    window.db = firebase.firestore();
 </script>
 
 
@@ -99,7 +89,7 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2" opacity=".6"/><circle cx="12" cy="12" r="20" stroke="#ffffff" stroke-width="2" opacity=".6"/></svg></div>
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="12" r="7" stroke="#ffffff" stroke-width="2" opacity=".6"/><circle cx="12" cy="12" r="11" stroke="#ffffff" stroke-width="2" opacity=".3"/></svg></div>
                 <h3 class="feature-title">Quantum Focus Engine</h3>
                 <p class="feature-description">
                     Revolutionary attention tracking system with real-time distraction detection, flow state monitoring,
@@ -108,7 +98,7 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path stroke="#66b5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
                 <h3 class="feature-title">Dynamic Achievement System</h3>
                 <p class="feature-description">
                     Adaptive milestone progression with intelligent streak recovery, achievement unlocks, and
@@ -117,7 +107,7 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path stroke="#53a3ff" stroke-width="2" d="M3 17l6-6 4 4 8-8"/></svg></div>
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path stroke="#ffffff" stroke-width="2" d="M3 17l6-6 4 4 8-8"/></svg></div>
                 <h3 class="feature-title">Predictive Performance</h3>
                 <p class="feature-description">
                     Machine learning algorithms predict optimal study schedules, identify knowledge gaps, and recommend
@@ -126,7 +116,7 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="7" rx="1" stroke="#3593ff" stroke-width="2"/><rect x="9" y="7" width="4" height="10" rx="1" stroke="#53a3ff" stroke-width="2"/><rect x="15" y="4" width="4" height="13" rx="1" stroke="#66b5ff" stroke-width="2"/></svg></div>
+                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="3" y="10" width="4" height="7" rx="1" stroke="#ffffff" stroke-width="2"/><rect x="9" y="7" width="4" height="10" rx="1" stroke="#ffffff" stroke-width="2"/><rect x="15" y="4" width="4" height="13" rx="1" stroke="#ffffff" stroke-width="2"/></svg></div>
                 <h3 class="feature-title">Advanced Analytics Suite</h3>
                 <p class="feature-description">
                     Dive deep! Unlock granular stats, trends, and actionable insights to laser-focus your grind—see
@@ -135,8 +125,17 @@
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon"><svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="7" cy="7" r="3" stroke="#53a3ff" stroke-width="2"/><circle cx="17" cy="17" r="3" stroke="#3593ff" stroke-width="2"/><path stroke="#66b5ff" stroke-width="2" d="M7 10v4M17 14v-4"/></svg>
-                </div></div>
+                <div class="feature-icon"><svg width="44" height="44" fill="none" viewBox="0 0 24 24">
+                    <!-- Calendar outline -->
+                    <rect x="3" y="4" width="18" height="17" rx="4" stroke="#ffffff" stroke-width="2"/>
+                    <!-- Calendar rings (days) -->
+                    <rect x="7" y="9" width="2.5" height="2.5" rx="1.25" fill="#ffffff"opacity="0.8"/>
+                    <rect x="11" y="9" width="2.5" height="2.5" rx="1.25" fill="#ffffff"opacity="0.8"/>
+                    <rect x="15" y="9" width="2.5" height="2.5" rx="1.25" fill="#ffffff" />
+                    <rect x="7" y="13" width="2.5" height="2.5" rx="1.25" fill="#ffffff"opacity="0.8"/>
+                    <rect x="11" y="13" width="2.5" height="2.5" rx="1.25" fill="#ffffff"opacity="0.8"/>
+                    <rect x="15" y="13" width="2.5" height="2.5" rx="1.25" fill="#ffffff"opacity="0.8"/>
+                  </svg></div>
                 <h3 class="feature-title">Personalized Streak Coaching</h3>
                 <p class="feature-description">Advanced streak tracking and recovery advice, totally personalized to
                     your routine so you never lose momentum. </p>
@@ -151,6 +150,10 @@
             <div class="stats-label">Elite Students Waitlisted</div>
             <div class="stats-sublabel">From 47 countries and counting</div>
         </div>
+    </section>
+
+    <section class="kairo">
+        <h1 class="kairotxt">A website by <a href="https://github.com/Not-Faizyab">Faizyab</a></h1>
     </section>
 
     <script>
